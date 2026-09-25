@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan Rizky Rafihuda - Professional Web CV</title>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --accent: #2563eb;
+            --text-dark: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f1f5f9;
+            padding: 2rem 1rem;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 3rem 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+            background-color: #e2e8f0;
+        }
+
+        .header-text h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .summary-tagline {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Experience Timeline */
+        .job-card {
+            margin-bottom: 2rem;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .company-name {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .job-meta {
+            text-align: right;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .job-subrole {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0.5rem 0 0.25rem 0;
+            font-size: 0.95rem;
+            text-decoration: underline;
+            text-decoration-color: var(--border);
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.925rem;
+            color: var(--text-dark);
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Sidebar Elements */
+        .contact-info {
+            background: var(--bg-light);
+            padding: 1.2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--primary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Skill Tags */
+        .skill-group {
+            margin-bottom: 1rem;
+        }
+
+        .skill-group h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tag {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            color: var(--text-dark);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+
+        .tag:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+
+        .edu-card {
+            margin-bottom: 1rem;
+        }
+
+        .edu-card p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+    <!-- Header Section -->
+    <header>
+        <img src="PhotoCV.jpg" alt="Farhan Rizky Rafihuda" class="profile-img">
+        <div class="header-text">
+            <h1>Farhan Rizky Rafihuda</h1>
+            <p class="summary-tagline">A12.2026.07517 | A12.63RPL</p>
+            <p class="summary-tagline">A digitalized, tech savvy, and data driven focused Individual. With a background in Field Supervision, Digital marketing, Community Management, and Data analytics.</p>
+        </div>
+    </header>
+
+    <!-- Main Content Split -->
+    <div class="main-content">
+        
+        <!-- Left Column: Experience -->
+        <main>
+            <section>
+                <h2>Professional Experience</h2>
+
+                <!-- Job 3: Data Analyst -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Data Analyst – Fare Load and Pricing</div>
+                            <div class="company-name">ATI Business Group / Flight Centre Travel Group</div>
+                        </div>
+                        <div class="job-meta">
+                            <div>Sept 2023 – Sept 2025</div>
+                            <div>Hybrid | Jakarta, ID</div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Analyse raw data and contracts on a case-to-case basis via methods such as in-depth manual comparative methods, pattern recognition, or with tools such as machine learning (AI).</li>
+                        <li>Query and update all incoming data to or from our client using Salesforce (CRM).</li>
+                        <li>Compile all the data into the SQL system and upload them later into our cloud storage/database.</li>
+                        <li>Conduct discussion with the team about the case on how to approach and apply such data into our system.</li>
+                        <li>Transform complex and massive data based on incoming queries into a more digestible, simple, and more presentable form (Power BI).</li>
+                        <li>Create, Optimize, and Update charts in our proprietary system based off the latest data.</li>
+                        <li>Enhance our production and data analysis using machine learning (AI).</li>
+                        <li>Utilize other applications such as GDS to support our chart creation or update endeavor.</li>
+                        <li>Conduct QC/QA to minimize or prevent any errors in our proprietary system.</li>
+                        <li>Collaborate and present the latest data to other teams in regards of ticket creation, ticket QC/QA, system upgrade, chart update, and contract updates.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2: Lotto Crypto -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Remote Digital Marketer & Community Management</div>
+                            <div class="company-name">Lotto Cryptocurrency</div>
+                        </div>
+                        <div class="job-meta">
+                            <div>Jan 2020 – Nov 2021</div>
+                            <div>Remote | New Jersey, USA</div>
+                        </div>
+                    </div>
+                    
+                    <div class="job-subrole">Digital Marketer</div>
+                    <ul>
+                        <li>Developed and executed omnichannel campaigns across Instagram, X, and TikTok, increasing follower engagement by 25% and driving 15% growth in brand awareness for a DeFi-focused crypto project.</li>
+                        <li>Optimized PPC campaigns using Google Ads and crypto-specific platforms, achieving a 20% improvement in click-through rates and reducing cost-per-acquisition by 15%.</li>
+                     </ul>
+                </div>
+                    
+            <section>
+                <h2>Education</h2>
+
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Computer Information Systems</div>
+                            <div class="company-name">Universitas Dian Nuswantoro</div>
+                        </div>
+                        <div class="job-meta">
+                            <div>Sept 2026 – Present</div>
+                            <div>Remote | Semarang, ID</div>
