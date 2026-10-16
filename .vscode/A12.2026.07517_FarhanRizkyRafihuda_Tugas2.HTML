@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Farhan Rizky Rafihuda</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #4b5563;
+            --bg-sidebar: #f8fafc;
+            --bg-main: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: #f1f5f9;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .cv-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            background-color: var(--bg-main);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: 1fr;
+            overflow: hidden;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: var(--bg-sidebar);
+            padding: 2.5rem;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .header-section h1 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .contact-info {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-info li {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            word-break: break-all;
+        }
+
+        .contact-info a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-light);
+        }
+
+        .sidebar-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .sidebar-section h2 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-badge {
+            background-color: #e2e8f0;
+            color: #334155;
+            padding: 0.35rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .skill-badge:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .lang-list {
+            list-style: none;
+        }
+
+        .lang-list li {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            padding: 2.5rem;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #eff6ff, #f8fafc);
+            border-left: 4px solid var(--primary-light);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin-bottom: 2.5rem;
+        }
+
+        .summary-box p {
+            font-size: 1.05rem;
+            color: #1e40af;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-light);
+        }
+
+        .experience-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .experience-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .company-name {
+            color: var(--primary-light);
+            font-weight: 500;
+        }
+
+        .job-meta {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 0.25rem;
+        }
+
+        .job-subheading {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 1rem 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .job-responsibilities {
+            list-style-type: none;
+            padding-left: 0.5rem;
+        }
+
+        .job-responsibilities li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .job-responsibilities li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-weight: bold;
+        }
+
+        .edu-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .edu-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .edu-meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Desktop Layout Responsive Overrides */
+        @media (min-width: 768px) {
+            .cv-container {
+                grid-template-columns: 320px 1fr;
+            }
+            .sidebar {
+                border-bottom: none;
+                border-right: 1px solid var(--border-color);
+                padding: 3rem 2rem;
+            }
+            .main-content {
+                padding: 3rem;
+            }
+            .experience-header {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            .job-meta {
+                text-align: right;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+    <!-- Sidebar / Left Column -->
+    <aside class="sidebar">
+        <div class="header-section">
+            <h1>Farhan Rizky<br>Rafihuda</h1>
+            <ul class="contact-info">
+                <li>📍 Bandung, West Java, ID</li>
+                <li>📱 (+62) 877-7765-6857</li>
+                <li>✉️ <a href="mailto:Farhantasso@gmail.com">Farhantasso@gmail.com</a></li>
+                <li>🌐 <a href="https://canva.site" target="_blank">farhant2023.my.canva.site</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-badge">SEO / SEM</span>
+                <span class="skill-badge">PPC Advertising</span>
+                <span class="skill-badge">Google & Meta Ads</span>
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">SQL</span>
+                <span class="skill-badge">Power BI / Tableau</span>
+                <span class="skill-badge">Data Visualization</span>
+                <span class="skill-badge">Salesforce CRM</span>
+                <span class="skill-badge">HubSpot CRM</span>
+                <span class="skill-badge">Blockchain (ERC-20)</span>
+                <span class="skill-badge">HTML / CSS / Java</span>
+                <span class="skill-badge">Ahrefs & SEMrush</span>
+                <span class="skill-badge">QC / QA</span>
+                <span class="skill-badge">GDS (Sabre)</span>
+                <span class="skill-badge">Jira / Trello</span>
+                <span class="skill-badge">Figma / Canva</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <h2>Languages</h2>
+            <ul class="lang-list">
+                <li><strong>English:</strong> Advanced (C1/C2)</li>
+                <li><strong>Indonesian:</strong> Native / Bilingual</li>
+                <li><strong>French:</strong> Beginner</li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content / Right Column -->
+    <main class="main-content">
+        <section class="summary-box">
+            <p>A digitalized, tech-savvy, and data-driven professional with a proven background across Field Supervision, Digital Marketing, Community Management, and Data Analytics.</p>
+        </section>
+
+        <section style="margin-bottom: 3rem;">
+            <h2 class="section-title">Professional Experience</h2>
+
+        <!-- Job 1 -->
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <div class="job-title">Data Analyst &ndash; Fare Load and Pricing</div>
+                    <div class="company-name">ATI Business Group / Flight Centre Travel Group</div>
+                </div>
+                <div class="job-meta">
+                    <div>Sept 2023 &ndash; Sept 2025</div>
+                    <div>Hybrid | Jakarta, ID</div>
+                </div>
+            </div>
+            
+            <div class="job-subheading">Data Analysis</div>
+
+                <ul class="job-responsibilities">
+                    <li>Analyze raw data and contracts using in-depth manual comparative methods, pattern recognition, and machine learning (AI).</li>
+                    <li>Query and update all incoming client data utilizing Salesforce CRM.</li>
+                    <li>Compile datasets into SQL structures and manage cloud storage database uploads.</li>
+                    <li>Transform complex, massive data points into digestible, clean visualizations via Power BI.</li>
+                    <li>Collaborate cross-functionally to present system data updates, ticket creations, and strict QC/QA processes.</li>
+                </ul>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Remote Digital Marketer & Community Manager</div>
+                        <div class="company-name">Lotto Cryptocurrency</div>
+                    </div>
+                    <div class="job-meta">
+                        <div>Jan 2020 – Nov 2021</div>
+                        <div>Remote | New Jersey, USA</div>
+                    </div>
+                </div>
+                
+                <div class="job-subheading">Digital Marketing</div>
+                <ul class="job-responsibilities">
+                    <li>Executed omnichannel campaigns across Instagram, X, and TikTok, increasing follower engagement by 25%.</li>
+                    <li>Optimized PPC strategies using Google Ads, achieving a 20% improvement in click-through rates.</li>
+                    <li>Boosted organic website traffic by 35% through SEO-driven content strategies (yield farming, staking).</li>
+                    <li>Delivered actionable campaign performance insights utilizing Google Analytics and HubSpot.</li>
+                </ul>
+
+                <div class="job-subheading">Community Management</div>
+                <ul class="job-responsibilities">
+                    <li>Grew vibrant Telegram and Discord communities by 35% through targeted user engagement.</li>
+                    <li>Curated interactive content, including AMAs and weekly Q&As, increasing user retention by 20%.</li>
+                </ul>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="job-title">Crew Supervisor & Coordinator</div>
+                        <div class="company-name">GIIAS Indonesia International Auto Show</div>
+                    </div>
+                    <div class="job-meta">
+                        <div>May – Aug 2019</div>
+                        <div>South Tangerang, ID</div>
+                    </div>
+                </div>
+                <ul class="job-responsibilities">
+                    <li>Oversaw day-to-day operations and streamlined logistics, customer service, and supply chain updates.</li>
+                    <li>Generated critical daily security, crew operations, and customer incident reports.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2 class="section-title">Education</h2>
+            <div class="edu-item">
+                <div class="edu-title">Al–Mubarak Vocational High School</div>
+                <div class="edu-meta">High School Diploma / GED | Cumulative GPA: 3.40/4.00 (Class of 2018)</div>
+            </div>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
