@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Perhitungan Pemakaian</title>
+  <!-- Menggunakan Bootstrap 5 via CDN -->
+  <link href="https://jsdelivr.net" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    .form-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #FFCC00, #FDB813);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .form-header {
+      background: linear-gradient(to right, #004B87, #005691, #19a7a4);
+      color: white;
+      padding: 20px;
+    }
+    .form-body {
+      padding: 25px;
+      color: #333;
+    }
+    label {
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+    .form-footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+    hr {
+      border-top: 1px solid rgba(0,0,0,0.1);
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <!-- Bagian Header Form -->
+  <div class="form-header">
+    <h4 class="m-0 fw-bold">Form Perhitungan Pemakaian</h4>
+    <small>Pastikan data yang dimasukkan sudah benar.</small>
+  </div>
+
+  <!-- Bagian Utama Form -->
+  <div class="form-body">
+    <h5 class="fw-bold mb-4" style="color: #2c3e50;">Perhitungan Biaya Pemakaian</h5>
+    
+    <form id="usageForm">
+      <!-- Baris 1: Kode Pelanggan & Nama -->
+      <div class="row mb-3">
+        <div class="col-md-4">
+          <label for="kodePelanggan" class="form-label">Kode Pelanggan</label>
+          <input type="text" class="form-control form-control-sm" id="kodePelanggan" placeholder="Masukkan kode" required>
+        </div>
+        <div class="col-md-8">
+          <label for="namaPelanggan" class="form-label">Nama</label>
+          <input type="text" class="form-control form-control-sm" id="namaPelanggan" placeholder="Masukkan nama" required>
+        </div>
+      </div>
+
+      <!-- Baris 2: Jenis Kelamin & Tanggal Lahir -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label class="form-label d-block">Jenis Kelamin</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="jenisKelamin" id="jkLaki" value="Laki-laki" checked>
+            <label class="form-check-label" for="jkLaki">Laki-laki</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="jenisKelamin" id="jkPerempuan" value="Perempuan">
+            <label class="form-check-label" for="jkPerempuan">Perempuan</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
+          <input type="date" class="form-control form-control-sm" id="tanggalLahir" required>
+        </div>
+      </div>
+
+      <!-- Baris 3: Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control form-control-sm" id="email" placeholder="Masukkan email, contoh : namanya@gmail.com" required>
+      </div>
+
+      <!-- Baris 4: Pekerjaan (Sesuai Gambar 1) -->
+      <div class="mb-3">
+        <label for="pekerjaan" class="form-label">Pekerjaan</label>
+        <select class="form-select form-select-sm" id="pekerjaan" required>
+          <option value="" disabled selected>Pilih pekerjaan</option>
+          <option value="Mahasiswa">Mahasiswa</option>
+          <option value="Dosen">Dosen</option>
+          <option value="Pegawai Swasta">Pegawai Swasta</option>
+          <option value="Wiraswasta">Wiraswasta</option>
+          <option value="Lainnya">Lainnya</option>
+        </select>
+      </div>
+
+      <!-- Baris 5: Alamat -->
+      <div class="mb-3">
+        <label for="alamat" class="form-label">Alamat</label>
+        <textarea class="form-control form-control-sm" id="alamat" rows="3" placeholder="Masukkan alamat" required></textarea>
+      </div>
+
+      <!-- Baris 6: Golongan (Sesuai Gambar 2) -->
+      <div class="mb-4">
+        <label for="golongan" class="form-label">Golongan</label>
+        <select class="form-select form-select-sm" id="golongan" required>
+          <option value="" disabled selected>Pilih Golongan</option>
+          <option value="Rumah Tangga 1">Rumah Tangga 1</option>
+          <option value="Rumah Tangga 2">Rumah Tangga 2</option>
+          <option value="Lembaga Sosial">Lembaga Sosial</option>
+          <option value="Perusahaan Lokal">Perusahaan Lokal</option>
+          <option value="Perusahaan Asing">Perusahaan Asing</option>
+          <option value="UMKM">UMKM</option>
+        </select>
+      </div>
+
+      <hr>
+
+      <!-- Bagian Input Finansial & Biaya -->
+      <div class="row align-items-center mb-2">
+        <div class="col-sm-4"><label for="biayaPemakaian" class="m-0">Biaya Pemakaian</label></div>
+        <div class="col-sm-5">
+          <input type="number" class="form-control form-control-sm" id="biayaPemakaian" placeholder="Masukkan Biaya pemakaian" required>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-2">
+        <div class="col-sm-4"><label for="biayaAdministrasi" class="m-0">Biaya Administrasi</label></div>
+        <div class="col-sm-5">
+          <!-- Nilai default otomatis terisi 10.000 sesuai instruksi -->
+          <input type="number" class="form-control form-control-sm" id="biayaAdministrasi" value="10000" readonly>
+        </div>
+      </div>
+
+      <div class="row align-items-center mb-4">
+        <div class="col-sm-4"><label for="biayaMeter" class="m-0">Biaya Meter</label></div>
+        <div class="col-sm-5">
+          <!-- Nilai default otomatis terisi 15.000 sesuai instruksi -->
+          <input type="number" class="form-control form-control-sm" id="biayaMeter" value="15000" readonly>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- Baris Hasil Perhitungan -->
+      <div class="row align-items-center mb-4">
+        <div class="col-sm-4"><label for="totalBayar" class="m-0 fw-bold">Total Bayar</label></div>
+        <div class="col-sm-5">
+          <input type="text" class="form-control form-control-sm bg-white" id="totalBayar" placeholder="Hasil Perhitungan" readonly>
+        </div>
+        <div class="col-sm-3">
+          <button type="button" class="btn btn-success btn-sm w-100" id="btnHitung">Hitung Total</button>
+        </div>
+      </div>
+
+      <!-- Tombol Aksi Form -->
+      <div class="d-flex gap-2">
+        <button type="button" class="btn btn-primary btn-sm" id="btnBersihkan">Bersihkan Isian</button>
+        <button type="button" class="btn btn-danger btn-sm" id="btnBatal">Batal</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Bagian Footer Form -->
+  <div class="form-footer">
+    Farhan Rizky Rafihuda || A12.2026.07517 || A12.63RPL &copy; Jumat, 30, October 2026; Semarang
+  </div>
+</div>
+
+<!-- Logika Interaktif Menggunakan JavaScript DOM -->
+<script>
+  // Mengambil elemen DOM yang diperlukan
+  const inputPemakaian = document.getElementById('biayaPemakaian');
+  const inputAdmin = document.getElementById('biayaAdministrasi');
+  const inputMeter = document.getElementById('biayaMeter');
+  const inputTotal = document.getElementById('totalBayar');
+  
+  const btnHitung = document.getElementById('btnHitung');
+  const btnBersihkan = document.getElementById('btnBersihkan');
+  const btnBatal = document.getElementById('btnBatal');
+  const usageForm = document.getElementById('usageForm');
+
+  // Fungsi 7: Menghitung total ketika tombol "Hitung Total" di-klik
+  btnHitung.addEventListener('click', function() {
+    const pemakaian = parseFloat(inputPemakaian.value) || 0;
+    const administrasi = parseFloat(inputAdmin.value) || 0;
+    const meter = parseFloat(inputMeter.value) || 0;
+
+    // Validasi dasar jika input pemakaian kosong/belum diisi nilai angka
+    if (inputPemakaian.value === "") {
+      alert("Silakan masukkan nilai angka pada Biaya Pemakaian terlebih dahulu!");
+      return;
+    }
+
+    // Rumus: Biaya Pemakaian + Biaya Administrasi + Biaya Meter
+    const total = pemakaian + administrasi + meter;
+    
+    // Menampilkan hasil perhitungan dengan format mata uang lokal Indonesia
+    inputTotal.value = "Rp " + total.toLocaleString('id-ID');
+  });
+
+  // Fungsi Tombol Bersihkan Isian
+  btnBersihkan.addEventListener('click', function() {
+    usageForm.reset();
+    inputTotal.value = "";
+    // Mengembalikan nilai default bawaan instruksi soal setelah form di-reset
+    inputAdmin.value = "10000";
+    inputMeter.value = "15000";
+  });
+
+  // Fungsi Tombol Batal
+  btnBatal.addEventListener('click', function() {
+    if (confirm("Apakah anda yakin ingin membatalkan pengisian form?")) {
+      usageForm.reset();
+      inputTotal.value = "";
+      inputAdmin.value = "10000";
+      inputMeter.value = "15000";
+    }
+  });
+</script>
+
+</body>
+</html>
